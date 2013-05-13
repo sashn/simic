@@ -1,0 +1,28 @@
+
+version 01: one thread, where answers can be posted
+
+
+
+x (1.1)thread screens:
+	x listing of all posts
+	x form to post an answer
+
+- one thread can have [0-n] answers
+- every answer has a text and was posted by somebody
+
+classes: thread, answer
+actions: listAnswers, postAnswer
+templates: listAnswers, postAnswer
+
+
+
+
+app working
+thoughts:
+- workflow still has to be much better, much smaller todo's
+- almost everything is now super dirty, version 02 will have no additional features, looking exactly like version 01, but with cleaner code:
+	- form validation (security in general? think about it 5mins)
+	- action handling is now pretty much hardcoded, should be much more flexible
+	- oop not really used at all
+	- DB usage not implemented cleanly
+	- template pattern not implemented well. using global =(
