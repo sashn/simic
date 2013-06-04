@@ -1,8 +1,5 @@
 
-<?php 
-	global $replies;
-	if(empty($replies)):
-?>
+<?php if(empty($replies)): ?>
 	no entries yet =(<br/><br/>
 <?php else: ?>
 
@@ -15,7 +12,7 @@
 
 <?php endif; ?>
 
-<a href="?postReply=form">post Reply</a>
+<a href="post">post Reply</a>
 
 
 

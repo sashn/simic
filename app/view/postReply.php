@@ -1,5 +1,5 @@
 
-<form action="?postReply=posted" method="post">
+<form action="post/submit" method="post">
 
 name:<br/>
 <input type="text" name="name" style="width:400px;" /><br/><br/>
