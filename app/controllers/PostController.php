@@ -8,7 +8,8 @@ class PostController implements PostControllerInterface
     }
 	
 	public function submit() {
-        $thread = new Thread();
+		$dbWrapper = new PdoWrapper();
+		$thread = new Thread($dbWrapper);
 		$thread->submitReply($_POST);
     }
 }

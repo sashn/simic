@@ -1,6 +1,6 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /simic/public/index.php
+RewriteRule ^(.*)$ /forum/versions/03/public/index.php
 
 
 

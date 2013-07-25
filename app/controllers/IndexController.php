@@ -3,7 +3,7 @@
 class IndexController implements IndexControllerInterface
 {
     public function index() {
-		$thread = new Thread();
-		$thread->listReplies();
+    	$boardController = new BoardController();
+		$boardController->show();
     }
 }

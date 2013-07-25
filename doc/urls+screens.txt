@@ -1,0 +1,17 @@
+
+home:list threads			url:	/forum
+
+-> post thread				url:	/forum/postthread
+
+-> posted thread			url:	/forum/thread/posted
+
+-> list replies				url:	/forum/thread/show/name/some-cool-topic
+
+-> post reply				url:	/forum/thread/postreply/name/some-cool-topic
+
+-> posted reply				url:	/forum/thread/posted/name/some-cool-topic
+
+
+
+
+

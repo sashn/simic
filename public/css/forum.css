@@ -1,0 +1,119 @@
+
+/*
+ * general
+ */
+
+.container {
+	margin:0 auto;
+	padding-top:30px;
+	width:1024px;
+	font-family:Verdana;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+#banner {
+	width:300px;
+	height:90px;
+	margin-right:60px;
+	float:left;
+}
+#claim {
+	width:664px;
+	float:left;
+	font:bold 30px/35px Verdana;
+}
+.clearfix {
+	float: none !important;
+	clear: both !important;
+}
+ul.listing {
+	width: 100%;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+ul.listing li {
+	width: 100%;
+	display: table;
+	border: 1px solid #000;
+	margin-bottom: 10px;
+	background-color: #EFEFEF;
+	color: #000;
+}
+ul.listing li.headings {
+	background-color: #000;
+	color: #FFF;
+}
+ul.listing div, ul.listing a {
+	display: table-cell;
+	padding: 5px;
+}
+ul.listing .creator {
+	width: 20%;
+}
+ul.listing .title {
+	width: 80%;
+}
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+.button {
+	padding: 5px 20px;
+	background-color: lightgray;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white darkgray darkgray white;
+}
+
+/*
+ * listThreads
+ */
+
+
+
+
+/*
+ * listReplies
+ */
+
+
+
+/*
+ * postReply
+ */
+
+.postReply .titleLabel {
+	width: 270px;
+	text-align: right;
+}
+.postReply .title {
+	width: 730px;
+}
+.postReply .text {
+	width: 100%;
+	height: 290px;
+}
+
+
+
+/*
+ * posted
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
