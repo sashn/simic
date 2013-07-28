@@ -69,11 +69,13 @@ class FrontController implements FrontControllerInterface
     }
     
     public function setParams(array $params) {
-        $this->params = $params;
+        for ($i=0, $paramCount = count($params); $i < $paramCount; $i+=2) { 
+            $this->params[$params[$i]] = $params[$i+1];
+        }
         return $this;
     }
     
     public function run() {
-        call_user_func_array(array(new $this->controller, $this->action), $this->params);
+        call_user_func(array(new $this->controller, $this->action), $this->params);
     }
 }

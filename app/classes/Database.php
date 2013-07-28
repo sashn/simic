@@ -7,7 +7,26 @@ class Database {
 		$this->pdo = new MyPdo;
 	}
 	
-    public function addThread(array $params) {
+    public function addReply(array $params) {
+		$this->pdo->prepare("
+			insert into replies 
+			select NULL, 
+			t.threads_id,
+			:users_id, 
+			:title, 
+			:text,
+			(select max(sort_order) from replies where threads_id = t.threads_id)+1
+			from threads t where t.seo_title = :seo_title
+		");
+
+		$this->pdo->bind("users_id", $params["users_id"]);
+		$this->pdo->bind("title", $params["title"]);
+		$this->pdo->bind("text", $params["text"]);
+		$this->pdo->bind("seo_title", $params["seo_title"]);
+		$this->pdo->execute();
+	}
+
+	public function addThread(array $params) {
 		$this->pdo->prepare("insert into threads select NULL, :users_id, :title, :seo_title");
 		$this->pdo->bind("users_id", $params["users_id"]);
 		$this->pdo->bind("title", $params["title"]);
@@ -26,13 +45,23 @@ class Database {
 
     public function getThreadData($seo_title) {
     	//TODO how to do it w/ just 1 query
-    	echo $seo_title."asd";
-    	$this->pdo->prepare("select * from threads where seo_title = :seo_title");
+    	$this->pdo->prepare("
+    		select t.*, u.name as creator
+    		from threads t
+    		left join users u on u.users_id = t.users_id
+    		where t.seo_title = :seo_title
+		");
 		$this->pdo->bind("seo_title", $seo_title);
 		$this->pdo->execute();
 		$threadData = $this->pdo->single();
 
-		$this->pdo->prepare("select * from replies where threads_id = :threads_id order by sort_order");
+		$this->pdo->prepare("
+    		select r.*, u.name as creator
+    		from replies r
+    		left join users u on u.users_id = r.users_id
+    		where r.threads_id = :threads_id
+    		order by sort_order
+		");
 		$this->pdo->bind("threads_id", $threadData["threads_id"]);
 		$this->pdo->execute();
 		$threadData["replies"] = $this->pdo->resultset();

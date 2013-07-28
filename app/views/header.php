@@ -12,7 +12,7 @@
 <body>
 
 <div class="header container">
-	<div id="banner" style="background-color:rgb(<?php echo rand(0,255).",".rand(0,255).",".rand(0,255); ?>)"></div>
+	<a id="banner" href="<?php echo ROOT_PATH_ABS ?>" style="background-color:rgb(<?php echo rand(0,255).",".rand(0,255).",".rand(0,255); ?>)"></a>
 	<div id="claim">Mein tolles Forum zum Ausprobieren von tollen Best Practices</div>
 	<div class="clearfix"></div>
 </div>

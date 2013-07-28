@@ -81,6 +81,12 @@ ul.listing .title {
  * listReplies
  */
 
+.listReplies ul.listing div {
+	height: 150px;
+}
+.listReplies ul.listing li.headings div {
+	height: auto;
+}
 
 
 /*

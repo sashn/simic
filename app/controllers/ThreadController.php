@@ -15,18 +15,26 @@ class ThreadController
         $view->show();
     }
 
-    public function postreply() {
+    public function postreply($params = false) {
         $view = new View();
         $view->setTemplate("postReply");
+        $view->assign("seo_title", $params["name"]);
         $view->show();
     }
 
     public function posted($params = false) {
         $database = new Database();
-        $seo_title = strtolower(str_replace(" ", "-", trim(preg_replace("[^A-Za-z0-9\ ]", "", $_POST["title"]))));
+        
         if ($params["name"]) {
-            $database->addReply();
+            $seo_title = $params["name"];
+            $database->addReply(array(
+                "users_id" => $_POST["users_id"],
+                "title" => $_POST["title"],
+                "text" => $_POST["text"],
+                "seo_title" => $seo_title
+            ));
         } else {
+            $seo_title = strtolower(str_replace(" ", "-", trim(preg_replace("[^A-Za-z0-9\ ]", "", $_POST["title"]))));
             $database->addThread(array(
                 "users_id" => $_POST["users_id"],
                 "title" => $_POST["title"],

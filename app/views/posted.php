@@ -1,4 +1,4 @@
-<div class="psoted">
+<div class="posted">
 
 <br/><br/>posted.<br/><br/><br/>
 <a href="<?php echo ROOT_PATH_ABS ?>/thread/show/name/<?php echo $seo_title ?>">
